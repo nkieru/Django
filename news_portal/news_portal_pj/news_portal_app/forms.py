@@ -36,7 +36,6 @@ class NewsForm(forms.ModelForm):
         return header
 
 
-
 class ArticleForm(forms.ModelForm):
     text = forms.CharField(min_length=20)
 
