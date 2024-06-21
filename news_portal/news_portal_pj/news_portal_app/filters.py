@@ -1,6 +1,7 @@
-from django_filters import FilterSet, ModelChoiceFilter, DateFilter
-from .models import Post, Author
+from django_filters import FilterSet, ModelChoiceFilter, DateFilter, ModelMultipleChoiceFilter
+from .models import Post, Author, Category
 from django import forms
+
 
 class PostFilter(FilterSet):
     author = ModelChoiceFilter(
@@ -17,8 +18,16 @@ class PostFilter(FilterSet):
         widget=forms.DateInput(attrs={'type': 'date'})
     )
 
+    categories = ModelMultipleChoiceFilter(
+        field_name='categories',
+        queryset=Category.objects.all(),
+        label='Категория',
+        conjoined=True,
+    )
+
     class Meta:
         model = Post
         fields = {
             'header': ['icontains'],
         }
+

@@ -1,7 +1,10 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django_filters.rest_framework import FilterSet
 
-from .models import Post
+from .models import *
 from .filters import PostFilter
 from .forms import NewsForm, ArticleForm
 
@@ -16,7 +19,7 @@ class NewsList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['news_len'] = Post.objects.all()
-        context['filterset'] = self.filterset
+        # context['filterset'] = self.filterset
         return context
 
     def get_queryset(self):
@@ -106,3 +109,31 @@ class ArticleDelete(DeleteView):
     model = Post
     template_name = 'article_delete.html'
     success_url = '/news/'
+
+
+class PostCategoryList(NewsList):
+    model = Post
+    ordering = '-date_time'
+    template_name = 'category.html'
+    context_object_name = 'category_list'
+    paginate_by = 10
+
+    def get_queryset(self):
+        self.categories = get_object_or_404(Category, id=self.kwargs['pk'])
+        queryset = Post.objects.filter(categories=self.categories)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_not_subscriber'] = self.request.user not in self.categories.subscribers.all()
+        context['categories'] = self.categories
+        return context
+
+
+@login_required
+def subscribe(request, pk):
+    user = request.user
+    categories = Category.objects.get(id=pk)
+    categories.subscribers.add(user)
+    message = 'Вы подписались на категорию: '
+    return render(request, 'subscribe.html', {'categories': categories, 'message': message})

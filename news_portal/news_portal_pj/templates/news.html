@@ -18,12 +18,16 @@ NEWS PORTAL
                 <td>Заголовок</td>
                 <td>Дата</td>
                 <td>Превью</td>
+                 <td>Категории</td>
             </tr>
             {% for post in news %}
             <tr>
                 <td>{{ post.header|censor }}</td>
                 <td>{{ post.date_time|date:'d M Y' }}</td>
                 <td>{{ post.text|truncatechars:20|censor }}</td>
+                <td>{% for categories in post.categories.all %}
+                    {{ categories }}
+                {% endfor %}</td>
            </tr>
            {% endfor %}
 
