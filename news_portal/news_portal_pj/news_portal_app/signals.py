@@ -43,4 +43,3 @@ from .tasks import new_post
 def new_post_mail(sender, instance, **kwargs):
     if kwargs['action'] == 'post_add':
         new_post.delay(instance.pk)
-

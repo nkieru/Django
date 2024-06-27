@@ -9,7 +9,7 @@ from django.core.mail import EmailMultiAlternatives
 @shared_task
 def weekly_news():
     today = datetime.now()
-    last_week = today - timedelta(days=8)
+    last_week = today - timedelta(days=7)
     posts = Post.objects.filter(date_time__gte=last_week)
     categories = set(posts.values_list('categories__name', flat=True))
     subscribers = set(Category.objects.filter(name__in=categories).values_list('subscribers__email', flat=True))
