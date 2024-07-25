@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django_filters.rest_framework import FilterSet
+from django.core.cache import cache
 
 from .models import *
 from .filters import PostFilter
@@ -32,6 +33,14 @@ class NewsDetail(DetailView):
     model = Post
     template_name = 'post.html'
     context_object_name = 'post'
+
+    # def get_object(self, *args, **kwargs):
+    #     obj = cache.get(f'post-{self.kwargs["pk"]}', None)
+    #     if not obj:
+    #         obj = super().get_object(queryset=self.queryset)
+    #         cache.set(f'post-{self.kwargs["pk"]}', obj)
+    #     return obj
+
 
 
 class NewsSearchList(ListView):

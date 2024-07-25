@@ -17,7 +17,8 @@
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
-        <!-- Responsive navbar-->
+        {% load cache %}
+        {% cache 60 nb_cache %}
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
             <div class="container">
                 <a class="navbar-brand" href="#">NEWS PORTAL</a>
@@ -30,20 +31,17 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
-                                <span class="sr-only">(current)</span>
+                            <a class="nav-link" href="/news">Все новости
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/someabout/">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/somecontacts/">Contacts</a>
+                            <a class="nav-link" href="/accounts/email">Регистрация/Вход</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        {% endcache %}
         <!-- Page content-->
         <div class="container">
             <div class="row">

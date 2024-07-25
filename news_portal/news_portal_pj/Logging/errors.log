@@ -1,0 +1,4 @@
+2024-07-25 19:18:21,217 INFO "GET / HTTP/1.1" 200 968 C:\Users\Nlieru\PycharmProjects\news_portal\venv\Lib\site-packages\django\core\servers\basehttp.py None
+2024-07-25 19:18:22,191 WARNING Not Found: /favicon.ico C:\Users\Nlieru\PycharmProjects\news_portal\venv\Lib\site-packages\django\utils\log.py None
+2024-07-25 19:18:22,877 WARNING "GET /favicon.ico HTTP/1.1" 404 2690 C:\Users\Nlieru\PycharmProjects\news_portal\venv\Lib\site-packages\django\core\servers\basehttp.py None
+2024-07-25 19:18:27,542 INFO "GET /admin/ HTTP/1.1" 200 16756 C:\Users\Nlieru\PycharmProjects\news_portal\venv\Lib\site-packages\django\core\servers\basehttp.py None
