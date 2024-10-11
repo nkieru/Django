@@ -1,42 +1,47 @@
 {% extends 'flatpages/default.html' %}
 
+{% load i18n %}
 {% load custom_filters %}
 {% load custom_tags %}
 
 {% block title %}
-NEWS PORTAL
+{% trans "NEWS PORTAL" %}
 {% endblock title %}
 
 {% block content %}
-    <h1>Новости</h1>
-    <h5> всего новостей: {{ news_len|length }} </h5>
+    <h1>{% trans "News" %}</h1>
+    <h5>{% trans "total news: " %}{{ news_len|length }}</h5>
+    <br>
+    <a href="/news/news/create" style="color: white">{% trans "Create post" %}</a>
+    <br>
+    <a href="/news/article/create" style="color: white">{% trans "Create article" %}</a>
 
     <hr>
     {% if news %}
         <table>
             <tr>
-                <td>Заголовок</td>
-                <td>Дата</td>
-                <td>Превью</td>
-                 <td>Категории</td>
+                <td>{% trans "Header" %}</td>
+                <td>{% trans "Date" %}</td>
+                <td>{% trans "Preview" %}</td>
+                <td>{% trans "Categories" %}</td>
             </tr>
             {% for post in news %}
             <tr>
-                <td>{{ post.header|censor }}</td>
+                <td><a href="/news/{{ post.id }}" style="color: white">{{ post.header|censor }}</td>
                 <td>{{ post.date_time|date:'d M Y' }}</td>
-                <td>{{ post.text|truncatechars:20|censor }}</td>
+                <td>{{ post.text|censor|truncatechars:20 }}</td>
                 <td>{% for categories in post.categories.all %}
                     {{ categories }}
                 {% endfor %}</td>
            </tr>
            {% endfor %}
-
-       </table>
+        </table>
     {% else %}
-        <h2>Нет новостей</h2>
+        <h2>{% trans "No news" %}</h2>
     {% endif %}
+
     {% if page_obj.has_previous %}
-        <a href="?{% url_replace page=1 %}">1</a>
+        <a href="?{% url_replace page=1 %}" style="color: darkgray">1</a>
         {% if page_obj.previous_page_number != 1 %}
             <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
     {% endif %}
@@ -49,4 +54,3 @@ NEWS PORTAL
        {% endif %}
    {% endif %}
 {% endblock content %}
-

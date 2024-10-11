@@ -1,40 +1,42 @@
 {% extends 'flatpages/default.html' %}
 
+
+{% load i18n %}
 {% load custom_filters %}
 {% load custom_tags %}
 
 {% block title %}
-NEWS PORTAL_Search
+{% trans "NEWS PORTAL_Search" %}
 {% endblock title %}
 
 {% block content %}
-    <h1>Новости</h1>
-    <h5> всего новостей: {{ news_len|length }} </h5>
+    <h1>{% trans "News" %}</h1>
+    <h5> {% trans "total news: " %}{{ news_len|length }} </h5>
 
     <form action="" method="get">
         {{ filterset.form.as_p }}
-        <input type="submit" value="Найти" />
+        <input type="submit" value={% blocktranslate %}Search{% endblocktranslate %} />
    </form>
 
     <hr>
     {% if news %}
         <table>
             <tr>
-                <td>Заголовок</td>
-                <td>Дата</td>
-                <td>Превью</td>
+                <td>{% trans "Header" %}</td>
+                <td>{% trans "Date" %}</td>
+                <td>{% trans "Preview" %}</td>
             </tr>
             {% for post in news %}
             <tr>
                 <td>{{ post.header|censor }}</td>
                 <td>{{ post.date_time|date:'d M Y' }}</td>
-                <td>{{ post.text|truncatechars:20|censor }}</td>
+                <td>{{ post.text|censor|truncatechars:20 }}</td>
            </tr>
            {% endfor %}
 
        </table>
     {% else %}
-        <h2>Нет новостей</h2>
+        <h2>{% trans "No news" %}</h2>
     {% endif %}
     {% if page_obj.has_previous %}
         <a href="?{% url_replace page=1 %}">1</a>

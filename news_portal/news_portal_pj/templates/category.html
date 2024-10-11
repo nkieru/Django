@@ -1,28 +1,29 @@
 {% extends 'flatpages/default.html' %}
 
+{% load i18n %}
 {% load custom_filters %}
 {% load custom_tags %}
 
 {% block title %}
-CATEGORY: {{ categories }}
+{% trans "CATEGORY" %}: {{ categories }}
 {% endblock title %}
 
 {% block content %}
 {% if is_not_subscriber %}
 <p class="text-center"><a href="{% url 'subscribe' categories.id %}"
-                          class="btn btn-secondary btn-sm">Подписаться на категорию: {{ categories }} </a></p>
+                          class="btn btn-secondary btn-sm">{% trans "Subscribe to category: " %}{{ categories }} </a></p>
 {% endif %}
-    <h1>Новости</h1>
-    <h5> всего новостей: {{ news_len|length }} </h5>
+    <h1>{% trans "News" %}</h1>
+    <h5> {% trans "total news: " %}{{ news_len|length }} </h5>
 
     <hr>
     {% if category_list %}
         <table>
             <tr>
-                <td>Заголовок</td>
-                <td>Дата</td>
-                <td>Превью</td>
-                <td>Категории</td>
+                <td>{% trans "Header" %}</td>
+                <td>{% trans "Date" %}</td>
+                <td>{% trans "Preview" %}</td>
+                <td>{% trans "Categories" %}</td>
             </tr>
             {% for post in category_list %}
             <tr>
@@ -37,7 +38,7 @@ CATEGORY: {{ categories }}
 
        </table>
     {% else %}
-        <h2>Нет новостей</h2>
+        <h2>{% trans "No news" %}</h2>
     {% endif %}
     {% if page_obj.has_previous %}
         <a href="?{% url_replace page=1 %}">1</a>
@@ -53,5 +54,3 @@ CATEGORY: {{ categories }}
        {% endif %}
    {% endif %}
 {% endblock content %}
-
-

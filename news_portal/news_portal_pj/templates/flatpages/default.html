@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load i18n %}
+{% load tz %}
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -15,13 +17,63 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         {% load static %}
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
+        <style>
+        body {background-color:{% if current_time.hour >= 19 or current_time.hour <= 7 %} #598b93 {% else %} #8CB9D0FF {% endif %};}
+        </style>
+
     </head>
+
     <body>
         {% load cache %}
         {% cache 60 nb_cache %}
+
+        <form action="{% url 'set_language' %}" method="POST"> {% csrf_token %}
+        <input type="hidden" name="next" value="{{ redirect_to }}">
+
+        <select name="language" id="">
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% get_current_language as LANGUAGE_CODE %}
+            {% for language in languages %}
+                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                    {{ language.name_local }} - {{ language.code }}
+                </option>
+            {% endfor %}
+        </select>
+        <input type="submit" value={% blocktranslate %}Set{% endblocktranslate %}>
+        </form>
+
+{% get_current_timezone as TIME_ZONE %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="timezone">Time zone:</label>
+        <select name="timezone">
+            {% for tz in timezones %}
+            <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value={% blocktranslate %}Set{% endblocktranslate %}>
+    </form>
+
+    {{ TIME_ZONE }}
+    {{ current_time|timezone:TIME_ZONE|date:"l d N Y H:i" }}
+
+    {% for model in models %}
+    <div class="model-class">
+        {{ model.name }}
+    </div>
+    {% endfor %}
+
+        {% for model in models %}
+        <div class="model-class">
+            {{ model.name }}
+        </div>
+        {% endfor %}
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
             <div class="container">
-                <a class="navbar-brand" href="#">NEWS PORTAL</a>
+                <a class="navbar-brand" href="#">{% trans "NEWS PORTAL" %}</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarResponsive"
                         aria-controls="navbarResponsive" aria-expanded="false"
@@ -31,11 +83,11 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/news">Все новости
+                            <a class="nav-link" href="/news">{% trans "All news" %}
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/accounts/email">Регистрация/Вход</a>
+                            <a class="nav-link" href="/accounts/email">{% trans "Sign up/Sign in" %}</a>
                         </li>
                     </ul>
                 </div>

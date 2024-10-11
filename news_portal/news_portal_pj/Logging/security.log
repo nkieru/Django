@@ -1,0 +1,2 @@
+2024-08-08 01:16:11,041 WARNING log Forbidden (CSRF token from POST incorrect.): /i18n/setlang/
+2024-08-08 01:16:14,432 WARNING log Forbidden (CSRF token from POST incorrect.): /i18n/setlang/

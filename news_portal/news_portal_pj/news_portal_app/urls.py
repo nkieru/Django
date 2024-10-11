@@ -15,4 +15,3 @@ urlpatterns = [
     path('categories/<int:pk>/', PostCategoryList.as_view(), name='post_category'),
     path('categories/<int:pk>/subscribe', subscribe, name='subscribe'),
 ]
-

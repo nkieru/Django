@@ -1,18 +1,27 @@
 {% extends 'main.html' %}
 
+{% load i18n %}
+
 {% block content %}
-<h2>Страница авторизованного пользователя {{request.user.username}}</h2>
-<div> Здесь может содержаться персональная информация для каждого пользователя </div>
+<h2>{% trans "Authorized user page: " %}{{request.user.username}}</h2>
+<div> {% trans "There may contain personal information for each user" %}</div>
 
     <form action="{% url 'logout' %}" method='post'>
         {% csrf_token %}
-        <input type='submit' value='Выйти'>
+        <input type='submit' value={% blocktranslate %}Exit{% endblocktranslate %}>
     </form>
     {% if is_not_authors %}
     <form action="{% url 'authors_add' %}" method='post'>
         {% csrf_token %}
-        <input type='submit' value='Стать автором'>
+        <input type='submit' value={% blocktranslate %}Become_an_author{% endblocktranslate %}>
     </form>
     {% endif %}
 
+<br>
+    <a href="/news" style="font-size: 30px">{% trans "Go to news" %}</a>
+<br>
+
 {% endblock %}
+
+</body>
+</html>

@@ -1,9 +1,11 @@
 {% extends 'flatpages/default.html' %}
 
+{% load i18n %}
 {% load custom_filters %}
+{% load custom_tags %}
 
 {% block title %}
-NEWS PORTAL_Post
+{% trans "NEWS PORTAL_Post_" %}{{ post.header|censor }}
 {% endblock title %}
 
 
@@ -12,9 +14,9 @@ NEWS PORTAL_Post
     <hr>
     <table>
         <tr>
-            <td>Заголовок</td>
-            <td>Текст</td>
-            <td>Дата</td>
+            <td>{% trans "Header" %}</td>
+            <td>{% trans "Text" %}</td>
+            <td>{% trans "Date" %}</td>
         </tr>
         <tr>
             <td>{{ post.header|censor }}</td>

@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-08 18:56+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\news_portal_app\filters.py:10
+msgid "Author"
+msgstr "Автор"
+
+#: .\news_portal_app\filters.py:11
+msgid "All authors"
+msgstr "Все авторы"
+
+#: .\news_portal_app\filters.py:17
+msgid "Before the date:"
+msgstr "До даты:"
+
+#: .\news_portal_app\filters.py:24
+msgid "Category"
+msgstr "Категория"
+
+#: .\news_portal_app\forms.py:26 .\news_portal_app\forms.py:58
+msgid "The text should not be identical to the title."
+msgstr "Текст не должен повторять заголовок."
+
+#: .\news_portal_app\forms.py:35 .\news_portal_app\forms.py:67
+msgid "The title should start with a capital letter."
+msgstr "Заголовок должен начинаться с заглавной буквы."
+
+#: .\news_portal_app\templatetags\custom_filters.py:7
+msgid "word_1"
+msgstr "слово_1"
+
+#: .\news_portal_app\templatetags\custom_filters.py:7
+msgid "word_2"
+msgstr "слово_2"
+
+#: .\news_portal_app\templatetags\custom_filters.py:7
+msgid "word_3"
+msgstr "слово_3"
+
+#: .\news_portal_app\templatetags\custom_filters.py:7
+msgid "word_4"
+msgstr "слово_4"
+
+#: .\news_portal_app\templatetags\custom_filters.py:10
+msgid "The variable is not a string"
+msgstr "Переменная не является строкой"
+
+#: .\news_portal_app\views.py:173
+msgid "You have subscribed to the category: "
+msgstr "Вы подписались на категорию: "
+
+#: .\sign\forms.py:10
+msgid "Name"
+msgstr "Имя"
+
+#: .\sign\forms.py:11
+msgid "Surname"
+msgstr "Фамилия"
+
+#: .\templates\article_create.html:7 .\templates\news.html:17
+msgid "Create article"
+msgstr "Создать статью"
+
+#: .\templates\article_create.html:12 .\templates\article_edit.html:13
+#: .\templates\news_create.html:13 .\templates\news_edit.html:13
+msgid "Save"
+msgstr "Сохранить"
+
+#: .\templates\article_delete.html:7 .\templates\article_delete.html:12
+msgid "Delete article"
+msgstr "Удалить статью"
+
+#: .\templates\article_delete.html:13 .\templates\news_delete.html:13
+#, fuzzy
+#| msgid "Delete post"
+msgid "Delete"
+msgstr "Удалить новость"
+
+#: .\templates\article_edit.html:7
+msgid "Edit article"
+msgstr "Изменить статью"
+
+#: .\templates\category.html:8
+msgid "CATEGORY"
+msgstr "КАТЕГОРИЯ"
+
+#: .\templates\category.html:14
+msgid "Subscribe to category: "
+msgstr "Подписаться на категорию"
+
+#: .\templates\category.html:16 .\templates\news.html:12
+#: .\templates\search.html:13
+msgid "News"
+msgstr "Новости"
+
+#: .\templates\category.html:17 .\templates\news.html:13
+#: .\templates\search.html:14
+msgid "total news: "
+msgstr "всего новостей: "
+
+#: .\templates\category.html:23 .\templates\news.html:23
+#: .\templates\post.html:17 .\templates\search.html:25
+msgid "Header"
+msgstr "Заголовок"
+
+#: .\templates\category.html:24 .\templates\news.html:24
+#: .\templates\post.html:19 .\templates\search.html:26
+msgid "Date"
+msgstr "Дата"
+
+#: .\templates\category.html:25 .\templates\news.html:25
+#: .\templates\search.html:27
+msgid "Preview"
+msgstr "Превью"
+
+#: .\templates\category.html:26 .\templates\news.html:26
+msgid "Categories"
+msgstr "Категории"
+
+#: .\templates\category.html:41 .\templates\news.html:40
+#: .\templates\search.html:39
+msgid "No news"
+msgstr "Нет новостей"
+
+#: .\templates\flatpages\default.html:44 .\templates\flatpages\default.html:56
+#: .\templates\login.html:22 .\templates\logout.html:23
+#: .\templates\main.html:29 .\templates\main.html:41
+msgid "Set"
+msgstr "Выбрать"
+
+#: .\templates\flatpages\default.html:76 .\templates\news.html:8
+msgid "NEWS PORTAL"
+msgstr "НОВОСТНОЙ ПОРТАЛ"
+
+#: .\templates\flatpages\default.html:86
+msgid "All news"
+msgstr "Все новости"
+
+#: .\templates\flatpages\default.html:90 .\templates\login.html:26
+#: .\templates\logout.html:27 .\templates\main.html:54
+msgid "Sign up/Sign in"
+msgstr "Регистрация/Вход"
+
+#: .\templates\index.html:6
+msgid "Authorized user page: "
+msgstr "Страница авторизированного пользователя: "
+
+#: .\templates\index.html:7
+msgid "There may contain personal information for each user"
+msgstr ""
+"Здесь может содержаться персональная информация для каждого пользователя"
+
+#: .\templates\index.html:11
+msgid "Exit"
+msgstr "Выйти"
+
+#: .\templates\index.html:16
+msgid "Become_an_author"
+msgstr "Стать_автором"
+
+#: .\templates\index.html:21
+#, fuzzy
+msgid "Go to news"
+msgstr "Перейти к новостям"
+
+#: .\templates\login.html:4 .\templates\login.html:45 .\templates\logout.html:5
+#: .\templates\main.html:7 .\templates\signup.html:6
+msgid "Sign up"
+msgstr "Регистрация"
+
+#: .\templates\login.html:30 .\templates\login.html:43
+msgid "Sign in"
+msgstr "Вход"
+
+#: .\templates\logout.html:31
+msgid "You are signed out"
+msgstr "Вы вышли из системы"
+
+#: .\templates\news.html:15 .\templates\news_create.html:7
+msgid "Create post"
+msgstr "Создать новость"
+
+#: .\templates\news_delete.html:7 .\templates\news_delete.html:12
+msgid "Delete post"
+msgstr "Удалить новость"
+
+#: .\templates\news_edit.html:7
+msgid "Edit post"
+msgstr "Изменить новость"
+
+#: .\templates\post.html:8
+msgid "NEWS PORTAL_Post_"
+msgstr "НОВОСТНОЙ ПОРТАЛ_Новость_"
+
+#: .\templates\post.html:18
+msgid "Text"
+msgstr "Текст"
+
+#: .\templates\search.html:9
+msgid "NEWS PORTAL_Search"
+msgstr "НОВОСТНОЙ ПОРТАЛ_Поиск"
+
+#: .\templates\search.html:18
+msgid "Search"
+msgstr "Поиск"
+
+#: .\templates\signup.html:10
+msgid "Continue"
+msgstr "Продолжить"
+
+#: .\templates\subscribers_new_mail.html:6 .\templates\weekly_news.html:6
+msgid "Message"
+msgstr "Сообщение"
+
+#: .\templates\subscribers_new_mail.html:9
+msgid "New"
+msgstr "Новый"
+
+#: .\templates\subscribers_new_mail.html:9
+msgid "post"
+msgstr "пост"
+
+#: .\templates\subscribers_new_mail.html:9
+msgid "in subscribes"
+msgstr "в подписках"
+
+#: .\templates\weekly_news.html:9
+msgid "New weekly news"
+msgstr "Новые новости за неделю"

@@ -1,14 +1,16 @@
 {% extends 'flatpages/default.html' %}
 
+{% load i18n %}
+
 {% block content %}
 
-<h1>Удалить статью</h1>
+<h1>{% trans "Delete article" %}</h1>
 <hr>
 
 <form action='' method='post'>
     {% csrf_token %}
-    <p>Удалить статью: "{{ object.header }}"?</p>
-    <input type='submit' value='Delete' />
+    <p>{% trans "Delete article" %}: {{ object.header }}"?</p>
+    <input type='submit' value={% blocktranslate %}Delete{% endblocktranslate %} />
 </form>
 
 {% endblock content %}

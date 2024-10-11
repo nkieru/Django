@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils.translation import gettext as _
 
 from .models import Post
 
@@ -22,7 +23,7 @@ class NewsForm(forms.ModelForm):
 
         if header == text:
             raise ValidationError(
-                "Текст должен быть не идентичен названию."
+                _("The text should not be identical to the title.")
             )
 
         return cleaned_data
@@ -31,7 +32,7 @@ class NewsForm(forms.ModelForm):
         header = self.cleaned_data["header"]
         if header[0].islower():
             raise ValidationError(
-                "Заголовок должен начинаться с заглавной буквы."
+                _("The title should start with a capital letter.")
             )
         return header
 
@@ -54,7 +55,7 @@ class ArticleForm(forms.ModelForm):
 
         if header == text:
             raise ValidationError(
-                "Текст должен быть не идентичен названию."
+                _("The text should not be identical to the title.")
             )
 
         return cleaned_data
@@ -63,6 +64,6 @@ class ArticleForm(forms.ModelForm):
         header = self.cleaned_data["header"]
         if header[0].islower():
             raise ValidationError(
-                "Заголовок должен начинаться с заглавной буквы."
+                _("The title should start with a capital letter.")
             )
         return header

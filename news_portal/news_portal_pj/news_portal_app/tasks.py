@@ -23,7 +23,7 @@ def weekly_news():
         )
 
     msg = EmailMultiAlternatives(
-        subject='Новости за неделю',
+        subject='Weekly news',
         body='',
         from_email=settings.DEFAULT_FROM_EMAIL,
         to=subscribers,
@@ -61,3 +61,4 @@ def new_post(pk):
 
     msg.attach_alternative(html_content, 'text/html')
     msg.send()
+

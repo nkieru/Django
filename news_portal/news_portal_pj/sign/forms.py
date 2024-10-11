@@ -2,12 +2,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
 from allauth.account.forms import SignupForm
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 
 class BaseRegisterForm(UserCreationForm):
-    email = forms.EmailField(label = "Email")
-    first_name = forms.CharField(label = "Имя")
-    last_name = forms.CharField(label = "Фамилия")
+    email = forms.EmailField(label="Email")
+    first_name = forms.CharField(label=_("Name"))
+    last_name = forms.CharField(label=_("Surname"))
 
     class Meta:
         model = User
